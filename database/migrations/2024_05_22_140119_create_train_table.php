@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
+class CreateTrainTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('train', function (Blueprint $table) {
+        Schema::create('trains', function (Blueprint $table) {
             $table->id();
             $table->string('azienda',100);
             $table->string('stazione_di_partenza',100);
@@ -25,7 +25,7 @@ return new class extends Migration
             $table->boolean('in_orario')->default(true);
             $table->boolean('cancellato')->default(false);
             $table->timestamps();
-            // qui
+            
         });
     }
 
@@ -36,6 +36,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('train');
+        Schema::dropIfExists('trains');
     }
 };
